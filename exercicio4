@@ -1,0 +1,18 @@
+public class Exercicio4 {
+    public static String converterParaBinario(int numero) {
+        if (numero == 0) {
+            return "0";
+        }
+
+        if (numero == 1) {
+            return "1";
+        }
+
+        return converterParaBinario(numero / 2) + Integer.toString(numero % 2);
+    }
+
+    public static void main(String[] args) {
+        int numero = 19;
+        System.out.println("O número " + numero + " em binário é " + converterParaBinario(numero) + ".");
+    }
+}
