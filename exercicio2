@@ -1,0 +1,19 @@
+public class Exercicio2 {
+    public static int calcularMDC(int x, int y) {
+        if (x == y) {
+            return x;
+        }
+
+        if (x > y) {
+            return calcularMDC(x - y, y);
+        } else {
+            return calcularMDC(y - x, x);
+        }
+    }
+
+    public static void main(String[] args) {
+        int x = 48;
+        int y = 18;
+        System.out.println("O MDC de " + x + " e " + y + " é " + calcularMDC(x, y) + ".");
+    }
+}
