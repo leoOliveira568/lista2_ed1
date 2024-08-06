@@ -1,0 +1,20 @@
+public class Exercicio1 {
+    public static int contarOcorrenciasDigito(int n, int k) {
+        if (n == 0) {
+            return 0;
+        }
+
+        int ultimoDigito = n % 10;
+        if (ultimoDigito == k) {
+            return 1 + contarOcorrenciasDigito(n / 10, k);
+        } else {
+            return contarOcorrenciasDigito(n / 10, k);
+        }
+    }
+
+    public static void main(String[] args) {
+        int numero = 762021192;
+        int digito = 2;
+        System.out.println("O dígito " + digito + " ocorre " + contarOcorrenciasDigito(numero, digito) + " vezes em " + numero + ".");
+    }
+}
