@@ -1,0 +1,54 @@
+class No {
+    int info;
+    No prox;
+
+    public No(int info) {
+        this.info = info;
+        this.prox = null;
+    }
+}
+
+class Lista {
+    No cabeca;
+    int tamanho;
+
+    public Lista() {
+        this.cabeca = null;
+        this.tamanho = 0;
+    }
+
+    public void inicializar() {
+        this.cabeca = null;
+        this.tamanho = 0;
+    }
+
+    public boolean isVazia() {
+        return this.cabeca == null;
+    }
+
+    public void inserir(int valor) {
+        No novo = new No(valor);
+        if (this.cabeca == null || this.cabeca.info >= valor) {
+            novo.prox = this.cabeca;
+            this.cabeca = novo;
+        } else {
+            No atual = this.cabeca;
+            while (atual.prox != null && atual.prox.info < valor) {
+                atual = atual.prox;
+            }
+            novo.prox = atual.prox;
+            atual.prox = novo;
+        }
+        this.tamanho++;
+    }
+
+    public void mostrar() {
+        No atual = this.cabeca;
+        while (atual != null) {
+            System.out.print(atual.info + " ");
+            atual = atual.prox;
+        }
+        System.out.println();
+    }
+}
+
